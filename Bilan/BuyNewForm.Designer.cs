@@ -29,8 +29,8 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuyNewForm));
-			this.button3 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.btnClear = new System.Windows.Forms.Button();
+			this.btnBuy = new System.Windows.Forms.Button();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -41,29 +41,31 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// button3
+			// btnClear
 			// 
-			this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-			this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button3.FlatAppearance.BorderSize = 0;
-			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button3.Location = new System.Drawing.Point(404, 482);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(61, 65);
-			this.button3.TabIndex = 21;
-			this.button3.UseVisualStyleBackColor = true;
+			this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
+			this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnClear.FlatAppearance.BorderSize = 0;
+			this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnClear.Location = new System.Drawing.Point(404, 482);
+			this.btnClear.Name = "btnClear";
+			this.btnClear.Size = new System.Drawing.Size(61, 65);
+			this.btnClear.TabIndex = 21;
+			this.btnClear.UseVisualStyleBackColor = true;
+			this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
 			// 
-			// button2
+			// btnBuy
 			// 
-			this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button2.FlatAppearance.BorderSize = 0;
-			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button2.Location = new System.Drawing.Point(484, 482);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(72, 65);
-			this.button2.TabIndex = 20;
-			this.button2.UseVisualStyleBackColor = true;
+			this.btnBuy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuy.BackgroundImage")));
+			this.btnBuy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnBuy.FlatAppearance.BorderSize = 0;
+			this.btnBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnBuy.Location = new System.Drawing.Point(484, 482);
+			this.btnBuy.Name = "btnBuy";
+			this.btnBuy.Size = new System.Drawing.Size(72, 65);
+			this.btnBuy.TabIndex = 20;
+			this.btnBuy.UseVisualStyleBackColor = true;
+			this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
 			// 
 			// dateTimePicker1
 			// 
@@ -86,7 +88,7 @@
 			// textBox1
 			// 
 			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(281, 276);
+			this.textBox1.Location = new System.Drawing.Point(285, 174);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(271, 35);
 			this.textBox1.TabIndex = 16;
@@ -114,7 +116,7 @@
 			// textBox2
 			// 
 			this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox2.Location = new System.Drawing.Point(281, 178);
+			this.textBox2.Location = new System.Drawing.Point(285, 272);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(271, 35);
 			this.textBox2.TabIndex = 23;
@@ -137,8 +139,8 @@
 			this.ClientSize = new System.Drawing.Size(604, 559);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button2);
+			this.Controls.Add(this.btnClear);
+			this.Controls.Add(this.btnBuy);
 			this.Controls.Add(this.dateTimePicker1);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.textBox1);
@@ -155,8 +157,8 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button btnClear;
+		private System.Windows.Forms.Button btnBuy;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.TextBox textBox1;

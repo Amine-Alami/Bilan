@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BalanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BalanceForm.Designer.cs">
+      <DependentUpon>BalanceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuyListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="TakeNewForm.Designer.cs">
       <DependentUpon>TakeNewForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BalanceForm.resx">
+      <DependentUpon>BalanceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BuyListForm.resx">
       <DependentUpon>BuyListForm.cs</DependentUpon>
     </EmbeddedResource>

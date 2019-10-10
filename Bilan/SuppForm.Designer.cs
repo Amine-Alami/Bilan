@@ -28,13 +28,17 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppForm));
 			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.searchBar = new System.Windows.Forms.TextBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
+			this.btnAdd = new System.Windows.Forms.Button();
+			this.btnEdit = new System.Windows.Forms.Button();
+			this.btnDelete = new System.Windows.Forms.Button();
+			this.btnClear = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -48,68 +52,105 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "List of the suppliers";
 			// 
-			// textBox1
+			// searchBar
 			// 
-			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(127, 61);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(278, 44);
-			this.textBox1.TabIndex = 2;
+			this.searchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.searchBar.Location = new System.Drawing.Point(127, 61);
+			this.searchBar.Name = "searchBar";
+			this.searchBar.Size = new System.Drawing.Size(278, 44);
+			this.searchBar.TabIndex = 2;
+			this.searchBar.TextChanged += new System.EventHandler(this.searchBar_TextChanged);
 			// 
 			// dataGridView1
 			// 
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveBorder;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
 			this.dataGridView1.Location = new System.Drawing.Point(12, 135);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.Size = new System.Drawing.Size(482, 412);
 			this.dataGridView1.TabIndex = 3;
 			// 
-			// button2
+			// btnAdd
 			// 
-			this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.button2.FlatAppearance.BorderSize = 0;
-			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button2.Location = new System.Drawing.Point(515, 190);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(77, 70);
-			this.button2.TabIndex = 4;
-			this.button2.UseVisualStyleBackColor = true;
+			this.btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.BackgroundImage")));
+			this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.btnAdd.FlatAppearance.BorderSize = 0;
+			this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAdd.Location = new System.Drawing.Point(515, 190);
+			this.btnAdd.Name = "btnAdd";
+			this.btnAdd.Size = new System.Drawing.Size(77, 70);
+			this.btnAdd.TabIndex = 4;
+			this.btnAdd.UseVisualStyleBackColor = true;
+			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
-			// button3
+			// btnEdit
 			// 
-			this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-			this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.button3.FlatAppearance.BorderSize = 0;
-			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button3.Location = new System.Drawing.Point(515, 301);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(77, 70);
-			this.button3.TabIndex = 5;
-			this.button3.UseVisualStyleBackColor = true;
+			this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
+			this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.btnEdit.FlatAppearance.BorderSize = 0;
+			this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnEdit.Location = new System.Drawing.Point(515, 301);
+			this.btnEdit.Name = "btnEdit";
+			this.btnEdit.Size = new System.Drawing.Size(77, 70);
+			this.btnEdit.TabIndex = 5;
+			this.btnEdit.UseVisualStyleBackColor = true;
+			this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
 			// 
-			// button4
+			// btnDelete
 			// 
-			this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-			this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.button4.FlatAppearance.BorderSize = 0;
-			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button4.Location = new System.Drawing.Point(515, 410);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(77, 70);
-			this.button4.TabIndex = 6;
-			this.button4.UseVisualStyleBackColor = true;
+			this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
+			this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.btnDelete.FlatAppearance.BorderSize = 0;
+			this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnDelete.Location = new System.Drawing.Point(515, 410);
+			this.btnDelete.Name = "btnDelete";
+			this.btnDelete.Size = new System.Drawing.Size(77, 70);
+			this.btnDelete.TabIndex = 6;
+			this.btnDelete.UseVisualStyleBackColor = true;
+			this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+			// 
+			// btnClear
+			// 
+			this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
+			this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnClear.FlatAppearance.BorderSize = 0;
+			this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnClear.Location = new System.Drawing.Point(536, 486);
+			this.btnClear.Name = "btnClear";
+			this.btnClear.Size = new System.Drawing.Size(35, 38);
+			this.btnClear.TabIndex = 6;
+			this.btnClear.UseVisualStyleBackColor = true;
+			this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
 			// 
 			// SuppForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(604, 559);
-			this.Controls.Add(this.button4);
-			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button2);
+			this.Controls.Add(this.btnClear);
+			this.Controls.Add(this.btnDelete);
+			this.Controls.Add(this.btnEdit);
+			this.Controls.Add(this.btnAdd);
 			this.Controls.Add(this.dataGridView1);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.searchBar);
 			this.Controls.Add(this.label1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "SuppForm";
@@ -122,10 +163,11 @@
 
 		#endregion
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox searchBar;
 		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button btnAdd;
+		private System.Windows.Forms.Button btnEdit;
+		private System.Windows.Forms.Button btnDelete;
+		private System.Windows.Forms.Button btnClear;
 	}
 }

@@ -574,7 +574,7 @@
         a2AaOb+itTLqtwMAfCcv7/8BfRGCJF/LFx8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnSubmit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAABfRSURBVHhe7Z1ZUxXZlscrbvS9t4eXjn7piHvfbvRrf4Duh37tfugv0BHdEf3SdeteQUsFJ9QL
@@ -682,7 +682,7 @@
         QmCC
 </value>
   </data>
-  <data name="button3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnClear.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAVySURBVGhD7ZpZiBxFGMd3jfcBRkk0XmAePB8MioqKsmIQ1sCi4ODeTBZZUDSyIgj64PoQMC8e

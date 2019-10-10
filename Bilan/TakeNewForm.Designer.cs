@@ -36,8 +36,8 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.label3 = new System.Windows.Forms.Label();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
+			this.btnSubmit = new System.Windows.Forms.Button();
+			this.btnClear = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -106,37 +106,39 @@
 			this.label3.TabIndex = 5;
 			this.label3.Text = "Date of the operation";
 			// 
-			// button2
+			// btnSubmit
 			// 
-			this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button2.FlatAppearance.BorderSize = 0;
-			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button2.Location = new System.Drawing.Point(483, 482);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(72, 65);
-			this.button2.TabIndex = 10;
-			this.button2.UseVisualStyleBackColor = true;
+			this.btnSubmit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSubmit.BackgroundImage")));
+			this.btnSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnSubmit.FlatAppearance.BorderSize = 0;
+			this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnSubmit.Location = new System.Drawing.Point(483, 482);
+			this.btnSubmit.Name = "btnSubmit";
+			this.btnSubmit.Size = new System.Drawing.Size(72, 65);
+			this.btnSubmit.TabIndex = 10;
+			this.btnSubmit.UseVisualStyleBackColor = true;
+			this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
 			// 
-			// button3
+			// btnClear
 			// 
-			this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-			this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button3.FlatAppearance.BorderSize = 0;
-			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button3.Location = new System.Drawing.Point(403, 482);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(61, 65);
-			this.button3.TabIndex = 11;
-			this.button3.UseVisualStyleBackColor = true;
+			this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
+			this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.btnClear.FlatAppearance.BorderSize = 0;
+			this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnClear.Location = new System.Drawing.Point(403, 482);
+			this.btnClear.Name = "btnClear";
+			this.btnClear.Size = new System.Drawing.Size(61, 65);
+			this.btnClear.TabIndex = 11;
+			this.btnClear.UseVisualStyleBackColor = true;
+			this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
 			// 
 			// TakeNewForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(604, 559);
-			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button2);
+			this.Controls.Add(this.btnClear);
+			this.Controls.Add(this.btnSubmit);
 			this.Controls.Add(this.dateTimePicker1);
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.pictureBox1);
@@ -162,7 +164,7 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button btnSubmit;
+		private System.Windows.Forms.Button btnClear;
 	}
 }

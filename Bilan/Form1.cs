@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Bilan
 {
@@ -16,6 +17,7 @@ namespace Bilan
 		{
 			InitializeComponent();
 			costumizeDesign();
+			MaximizeBox = false;
 		}
 
 		private void costumizeDesign()
@@ -52,9 +54,7 @@ namespace Bilan
 		{
 			openChildForm(new SuppForm());
 			hideSubMenu();
-			//showSubMenu(panelSupp);
 		}
-		
 
 		////////////////////////////////// Button Take ////////////////////////////////////////
 		private void btnTake_Click(object sender, EventArgs e)
@@ -103,6 +103,12 @@ namespace Bilan
 		}
 		#endregion
 
+		////////////////////////////////// Button Balance /////////////////////////////////////
+		private void btnbalance_Click(object sender, EventArgs e)
+		{
+			openChildForm(new BalanceForm());
+			hideSubMenu();
+		}
 		private void Form1_Load(object sender, EventArgs e){}
 
 		private Form activeForm = null;
@@ -119,5 +125,7 @@ namespace Bilan
 			childForm.BringToFront();
 			childForm.Show();
 		}
+
+		
 	}
 }
