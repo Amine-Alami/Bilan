@@ -13,7 +13,7 @@ namespace Bilan
 {
 	public partial class BuyNewForm : Form
 	{
-		SqlConnection con = new SqlConnection(@"Data Source=AMINE-LAPTOP\SQLEXPRESS;Initial Catalog=Bilan;Integrated Security=True");
+		SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bilan_local;Integrated Security=True");
 		DataTable dt = new DataTable();
 		public BuyNewForm()
 		{
@@ -47,10 +47,11 @@ namespace Bilan
 				string query = "INSERT INTO Buy(id,product,price,date_pr) VALUES ('" + rn + "','" + textBox1.Text + "','" + textBox2.Text + "','" + dateTimePicker1.Value.ToShortDateString() + "')";
 				SqlDataAdapter cmd = new SqlDataAdapter(query, con);
 				cmd.SelectCommand.ExecuteNonQuery();
-				con.Close();
+				
 				MessageBox.Show("Product BOUGHT successfully !!");
 				btnClear_Click(sender, e);
 			}
+			con.Close();
 		}
 
 		private void btnClear_Click(object sender, EventArgs e)

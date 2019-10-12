@@ -13,7 +13,7 @@ namespace Bilan
 {
 	public partial class BalanceForm : Form
 	{
-		SqlConnection con = new SqlConnection(@"Data Source=AMINE-LAPTOP\SQLEXPRESS;Initial Catalog=Bilan;Integrated Security=True");
+		SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bilan_local;Integrated Security=True");
 		DataTable dtTake = new DataTable();
 		DataTable dtBuy = new DataTable();
 		public BalanceForm()
@@ -26,12 +26,11 @@ namespace Bilan
 				string queryTake = "SELECT amount FROM TakeMoney";
 				SqlDataAdapter cmdTake = new SqlDataAdapter(queryTake, con);
 				cmdTake.Fill(dtTake);
-				con.Close();
+				
 
 				string queryBuy = "SELECT price FROM Buy";
 				SqlDataAdapter cmdBuy = new SqlDataAdapter(queryBuy, con);
 				cmdBuy.Fill(dtBuy);
-				con.Close();
 				///////////// Count ///////////////////////////////
 				float IN = 0;
 				float OUT = 0;
@@ -58,6 +57,7 @@ namespace Bilan
 				txtOut.Text = OUT.ToString() + " DH";
 				txtReste.Text = (IN - OUT).ToString() + " DH";
 			}
+			con.Close();
 		}
 	}
 }

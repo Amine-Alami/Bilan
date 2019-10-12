@@ -13,7 +13,7 @@ namespace Bilan
 {
 	public partial class TakeNewForm : Form
 	{
-		SqlConnection con = new SqlConnection(@"Data Source=AMINE-LAPTOP\SQLEXPRESS;Initial Catalog=Bilan;Integrated Security=True");
+		SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bilan_local;Integrated Security=True");
 		DataTable dt = new DataTable();
 		public TakeNewForm()
 		{
@@ -28,8 +28,9 @@ namespace Bilan
 				{
 					comboBox1.Items.Add(dr["pseudo"].ToString());
 				}
-				con.Close();
+				
 			}
+			con.Close();
 		}
 		
 		//////////////////////// random ID /////////////////////////////
@@ -57,10 +58,11 @@ namespace Bilan
 				string query = "INSERT INTO TakeMoney(id,pseudo,amount,date_Op) VALUES ('" + rn + "','" + comboBox1.Text + "','" + textBox1.Text + "','" +  dateTimePicker1.Value.ToShortDateString() + "')";
 				SqlDataAdapter cmd = new SqlDataAdapter(query, con);
 				cmd.SelectCommand.ExecuteNonQuery();
-				con.Close();
+				
 				MessageBox.Show("Money ADDED successfully !!\nThanks to " + comboBox1.Text);
 				btnClear_Click(sender,e);
 			}
+			con.Close();
 		}
 
 		private void btnClear_Click(object sender, EventArgs e)

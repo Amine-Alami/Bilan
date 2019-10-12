@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.VisualBasic;
 
 namespace Bilan
 {
 	public partial class BuyListForm : Form
 	{
-		SqlConnection con = new SqlConnection(@"Data Source=AMINE-LAPTOP\SQLEXPRESS;Initial Catalog=Bilan;Integrated Security=True");
+		SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bilan_local;Integrated Security=True");
 		DataTable dt = new DataTable();
 		public BuyListForm()
 		{
@@ -26,8 +27,9 @@ namespace Bilan
 
 				cmd.Fill(dt);
 				dataGridView1.DataSource = dt;
-				con.Close();
+				
 			}
+			con.Close();
 		}
 
 		private void btnEdit_Click(object sender, EventArgs e)
@@ -42,9 +44,10 @@ namespace Bilan
 				string query = "UPDATE Buy SET product='" + cell2 + "',price='" + cell3 + "',date_pr='" + cell4 + "' WHERE id ='" + cell1 + "';";
 				SqlDataAdapter cmd = new SqlDataAdapter(query, con);
 				cmd.SelectCommand.ExecuteNonQuery();
-				con.Close();
+				
 				MessageBox.Show("Operation UPDATED successfully !!");
 			}
+			con.Close();
 		}
 
 		private void btnDelete_Click(object sender, EventArgs e)
@@ -58,10 +61,11 @@ namespace Bilan
 					string query = "DELETE FROM Buy WHERE id ='" + cell1 + "';";
 					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
 					cmd.SelectCommand.ExecuteNonQuery();
-					con.Close();
+					
 					MessageBox.Show("Operation DELETED successfully !!");
 				}
 			}
+			con.Close();
 		}
 
 		private void searchBar_TextChanged(object sender, EventArgs e)
@@ -74,8 +78,9 @@ namespace Bilan
 				dt.Clear();
 				cmd.Fill(dt);
 				dataGridView1.DataSource = dt;
-				con.Close();
+				
 			}
+			con.Close();
 		}
 
 		private void btnClear_Click(object sender, EventArgs e)
@@ -83,14 +88,26 @@ namespace Bilan
 			con.Open();
 			if (con.State == System.Data.ConnectionState.Open)
 			{
-				if (MessageBox.Show("Are you sure you want to clear the list ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+				if (MessageBox.Show("Are you sure you want to clear the list ?", "Confirmation", MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
 				{
-					string query = "DELETE FROM Buy ;";
-					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
-					cmd.SelectCommand.ExecuteNonQuery();
-					con.Close();
-					MessageBox.Show("List CLEARED successfully !!");
+					string pass = Interaction.InputBox("Please confirm your password", "Confirmation", "", -1, -1);
+					if (pass == "liberta007")
+					{
+						string query = "DELETE FROM Buy ;";
+						SqlDataAdapter cmd = new SqlDataAdapter(query, con);
+						cmd.SelectCommand.ExecuteNonQuery();
+						MessageBox.Show("List CLEARED successfully !!");
+					}
 				}
+			}
+			con.Close();
+		}
+
+		private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+		{
+			if (MessageBox.Show("Do you want to save those changes ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+			{
+				btnEdit_Click(this, new EventArgs());
 			}
 		}
 	}

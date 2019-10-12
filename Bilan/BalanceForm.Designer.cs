@@ -41,6 +41,7 @@
 			// 
 			// txtIN
 			// 
+			this.txtIN.Enabled = false;
 			this.txtIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtIN.Location = new System.Drawing.Point(293, 186);
 			this.txtIN.Name = "txtIN";
@@ -69,6 +70,7 @@
 			// 
 			// txtOut
 			// 
+			this.txtOut.Enabled = false;
 			this.txtOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtOut.Location = new System.Drawing.Point(293, 284);
 			this.txtOut.Name = "txtOut";
@@ -97,6 +99,7 @@
 			// 
 			// txtReste
 			// 
+			this.txtReste.Enabled = false;
 			this.txtReste.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtReste.Location = new System.Drawing.Point(293, 383);
 			this.txtReste.Name = "txtReste";
