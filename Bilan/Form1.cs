@@ -22,15 +22,15 @@ namespace Bilan
 
 		private void costumizeDesign()
 		{
-			//panelSupp.Visible = false;
+			panelSupp.Visible = false;
 			panelTake.Visible = false;
 			panelBuy.Visible = false;
 		}
 
 		private void hideSubMenu()
 		{
-			//if(panelSupp.Visible == true)
-			//	panelSupp.Visible = false;
+			if(panelSupp.Visible == true)
+				panelSupp.Visible = false;
 			if(panelTake.Visible == true)
 				panelTake.Visible = false;
 			if(panelBuy.Visible == true)
@@ -49,12 +49,33 @@ namespace Bilan
 				
 		}
 
+		private void panelLogo_Click(object sender, EventArgs e)
+		{
+			
+		}
+
 		////////////////////////////////// Button Supplier /////////////////////////////////////
 		private void btnSupplier_Click(object sender, EventArgs e)
 		{
-			openChildForm(new SuppForm());
+			showSubMenu(panelSupp);
+		}
+		#region Panel Take
+
+		private void btnNewSupp_Click(object sender, EventArgs e)
+		{
+			openChildForm(new NewSuppForm());
+			// write your code above
 			hideSubMenu();
 		}
+
+		private void btnListSupp_Click(object sender, EventArgs e)
+		{
+
+			openChildForm(new SuppForm());
+			// write your code above
+			hideSubMenu();
+		}
+		#endregion
 
 		////////////////////////////////// Button Take ////////////////////////////////////////
 		private void btnTake_Click(object sender, EventArgs e)
@@ -126,6 +147,10 @@ namespace Bilan
 			childForm.Show();
 		}
 
-		
+		private void panelBuy_Paint(object sender, PaintEventArgs e){}
+
+		private void panelTake_Paint(object sender, PaintEventArgs e){}
+
+		private void panelLogo_Paint(object sender, PaintEventArgs e){}
 	}
 }

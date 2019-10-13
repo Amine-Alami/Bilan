@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -14,8 +15,8 @@ namespace Bilan
 {
 	public partial class TakeListForm : Form
 	{
-		SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bilan_local;Integrated Security=True");
-		DataTable dt = new DataTable();
+		
+		SqlConnection con = new SqlConnection(@"Data Source=AMINE-LAPTOP\SQLEXPRESS;Initial Catalog=Bilan;Integrated Security=True"); DataTable dt = new DataTable();
 		public TakeListForm()
 		{
 			InitializeComponent();
@@ -73,12 +74,40 @@ namespace Bilan
 			con.Open();
 			if (con.State == System.Data.ConnectionState.Open)
 			{
-				string query = "SELECT * FROM TakeMoney WHERE pseudo LIKE('%" + searchBar.Text + "%') OR amount LIKE('%" + searchBar.Text + "%') OR date_Op LIKE('%" + searchBar.Text + "%')";
-				SqlDataAdapter cmd = new SqlDataAdapter(query, con);
-				dt.Clear();
-				cmd.Fill(dt);
-				dataGridView1.DataSource = dt;
 				
+				if (radioButton1.Checked)
+				{
+					string query = "SELECT * FROM TakeMoney WHERE pseudo LIKE('%" + searchBar.Text + "%')";
+					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
+					dt.Clear();
+					cmd.Fill(dt);
+					dataGridView1.DataSource = dt;
+				}
+				else if (radioButton2.Checked)
+				{
+					string query = "SELECT * FROM TakeMoney WHERE amount LIKE('%" + searchBar.Text + "%')";
+					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
+					dt.Clear();
+					cmd.Fill(dt);
+					dataGridView1.DataSource = dt;
+				}
+				else if (radioButton3.Checked)
+				{
+					string query = "SELECT * FROM TakeMoney WHERE date_Op LIKE('%" + searchBar.Text + "%')";
+					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
+					dt.Clear();
+					cmd.Fill(dt);
+					dataGridView1.DataSource = dt;
+				}
+				else
+				{
+					string query = "SELECT * FROM TakeMoney WHERE pseudo LIKE('%" + searchBar.Text + "%') OR amount LIKE('%" + searchBar.Text + "%') OR date_Op LIKE('%" + searchBar.Text + "%')";
+					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
+					dt.Clear();
+					cmd.Fill(dt);
+					dataGridView1.DataSource = dt;
+				}
+
 			}
 			con.Close();
 		}
@@ -91,7 +120,7 @@ namespace Bilan
 				if (MessageBox.Show("Are you sure you want to clear the list ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
 				{
 					string pass = Interaction.InputBox("Please confirm your password", "Confirmation", "", -1, -1);
-					if (pass == "liberta007")
+					if(pass == "liberta007")
 					{
 						string query = "DELETE FROM TakeMoney ;";
 						SqlDataAdapter cmd = new SqlDataAdapter(query, con);
@@ -109,6 +138,21 @@ namespace Bilan
 			{
 				btnEdit_Click(this, new EventArgs());
 			}
+		}
+
+		private void radioButton1_CheckedChanged(object sender, EventArgs e)
+		{
+			searchBar.Focus();
+		}
+
+		private void radioButton2_CheckedChanged(object sender, EventArgs e)
+		{
+			searchBar.Focus();
+		}
+
+		private void radioButton3_CheckedChanged(object sender, EventArgs e)
+		{
+			searchBar.Focus();
 		}
 	}
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -13,7 +14,8 @@ namespace Bilan
 {
 	public partial class BalanceForm : Form
 	{
-		SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bilan_local;Integrated Security=True");
+		
+		SqlConnection con = new SqlConnection(@"Data Source=AMINE-LAPTOP\SQLEXPRESS;Initial Catalog=Bilan;Integrated Security=True");
 		DataTable dtTake = new DataTable();
 		DataTable dtBuy = new DataTable();
 		public BalanceForm()

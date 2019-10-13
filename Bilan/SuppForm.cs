@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -14,41 +15,27 @@ namespace Bilan
 {
 	public partial class SuppForm : Form
 	{
-		SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bilan_local;Integrated Security=True");
+		
+		SqlConnection con = new SqlConnection(@"Data Source=AMINE-LAPTOP\SQLEXPRESS;Initial Catalog=Bilan;Integrated Security=True");
 		DataTable dt = new DataTable();
 		public SuppForm()
 		{
-			try{ }catch{ MessageBox.Show(""); }
-			InitializeComponent();
-			con.Open();
-			if (con.State == System.Data.ConnectionState.Open)
-			{
-				string query = "SELECT * FROM Supplier";
-				SqlDataAdapter cmd = new SqlDataAdapter(query, con);
+			try{ 
+				InitializeComponent();
+				con.Open();
+				if (con.State == System.Data.ConnectionState.Open)
+				{
+					string query = "SELECT * FROM Supplier";
+					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
 				
-				cmd.Fill(dt);
-				dataGridView1.DataSource = dt;
+					cmd.Fill(dt);
+					dataGridView1.DataSource = dt;
 				
-			}
-			con.Close();
+				}
+				con.Close();
+			}catch{ MessageBox.Show("Unknown error"); }
 		}
 		
-		private void btnAdd_Click(object sender, EventArgs e)
-		{
-			string cell1 = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString();
-			string cell2 = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
-			string cell3 = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value.ToString();
-			con.Open();
-			if (con.State == System.Data.ConnectionState.Open)
-			{
-				string query = "INSERT INTO Supplier(pseudo,name,last_name) VALUES ('" + cell1 + "','"+ cell2 + "','"+ cell3 + "')";
-				SqlDataAdapter cmd = new SqlDataAdapter(query, con);
-				cmd.SelectCommand.ExecuteNonQuery();
-				
-				MessageBox.Show("Supplier ADDED successfully !!");
-			}
-			con.Close();
-		}
 
 		private void btnEdit_Click(object sender, EventArgs e)
 		{
@@ -90,12 +77,38 @@ namespace Bilan
 			con.Open();
 			if (con.State == System.Data.ConnectionState.Open)
 			{
-				string query = "SELECT * FROM Supplier WHERE pseudo LIKE('%"+searchBar.Text+ "%') OR last_name LIKE('%" + searchBar.Text + "%') OR name LIKE('%" + searchBar.Text + "%')";
-				SqlDataAdapter cmd = new SqlDataAdapter(query, con);
-				dt.Clear();
-				cmd.Fill(dt);
-				dataGridView1.DataSource = dt;
-				
+				if(radioButton1.Checked)
+				{
+					string query = "SELECT * FROM Supplier WHERE pseudo LIKE('%"+searchBar.Text+ "%')";
+					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
+					dt.Clear();
+					cmd.Fill(dt);
+					dataGridView1.DataSource = dt;
+				}else if (radioButton2.Checked)
+				{
+					string query = "SELECT * FROM Supplier WHERE name LIKE('%" + searchBar.Text + "%')";
+					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
+					dt.Clear();
+					cmd.Fill(dt);
+					dataGridView1.DataSource = dt;
+				}else if (radioButton3.Checked)
+				{
+					string query = "SELECT * FROM Supplier WHERE last_name LIKE('%" + searchBar.Text + "%')";
+					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
+					dt.Clear();
+					cmd.Fill(dt);
+					dataGridView1.DataSource = dt;
+				}
+				else
+				{
+					string query = "SELECT * FROM Supplier WHERE pseudo LIKE('%" + searchBar.Text + "%') OR last_name LIKE('%" + searchBar.Text + "%') OR name LIKE('%" + searchBar.Text + "%')";
+					SqlDataAdapter cmd = new SqlDataAdapter(query, con);
+					dt.Clear();
+					cmd.Fill(dt);
+					dataGridView1.DataSource = dt;
+				}
+
+
 			}
 			con.Close();
 		}
@@ -105,11 +118,10 @@ namespace Bilan
 			con.Open();
 			if (con.State == System.Data.ConnectionState.Open)
 			{
-				
 				if (MessageBox.Show("Are you sure you want to clear the list ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
 				{
 					string pass = Interaction.InputBox("Please confirm your password", "Confirmation", "", -1, -1);
-					if(pass == "liberta007")
+					if(pass == "liberta007")	
 					{
 						string query = "DELETE FROM Supplier ;";
 						SqlDataAdapter cmd = new SqlDataAdapter(query, con);
@@ -128,6 +140,21 @@ namespace Bilan
 			{
 				btnEdit_Click(this, new EventArgs());
 			}
+		}
+
+		private void radioButton1_CheckedChanged(object sender, EventArgs e)
+		{
+			searchBar.Focus();
+		}
+
+		private void radioButton2_CheckedChanged(object sender, EventArgs e)
+		{
+			searchBar.Focus();
+		}
+
+		private void radioButton3_CheckedChanged(object sender, EventArgs e)
+		{
+			searchBar.Focus();
 		}
 	}
 }
