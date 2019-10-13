@@ -22,6 +22,7 @@ namespace Bilan
 		{
 			try{ 
 				InitializeComponent();
+				
 				con.Open();
 				if (con.State == System.Data.ConnectionState.Open)
 				{
@@ -30,7 +31,8 @@ namespace Bilan
 				
 					cmd.Fill(dt);
 					dataGridView1.DataSource = dt;
-				
+					dataGridView1.Columns[0].ReadOnly = true;
+					dataGridView1.AllowUserToAddRows = false;
 				}
 				con.Close();
 			}catch{ MessageBox.Show("Unknown error"); }

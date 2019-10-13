@@ -29,7 +29,8 @@ namespace Bilan
 
 				cmd.Fill(dt);
 				dataGridView1.DataSource = dt;
-				
+				dataGridView1.Columns[0].ReadOnly = true;
+				dataGridView1.AllowUserToAddRows = false;
 			}
 			con.Close();
 		}
